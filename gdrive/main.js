@@ -14,8 +14,7 @@ $(document).ready(function(){
 
      // the url to which the user is redirected to
 
-    //TODO change in google developer console credentials(client id, secret)
-     var url = "./gdrive/callback.html";
+     var url = "https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/upload.html";
 
      // this is event click listener for the button
      $("#login").click(function(){
