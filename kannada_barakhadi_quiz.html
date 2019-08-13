@@ -67,6 +67,16 @@ var arr=[
     ];
 
 $(document).ready(function(){
+
+   //qdiacritics
+   $("#qdiacritics").html('ಲ');
+
+   $("#nextDiacritics").click(function(){
+
+    var ch = diacritics[Math.floor(Math.random() * diacritics.length)];
+    $("#qdiacritics").html(ch);
+   });
+    //---
    $("#q").html('ಲ');
 
   $("#next").click(function(){
