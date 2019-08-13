@@ -69,11 +69,11 @@ var arr=[
 $(document).ready(function(){
 
    //qdiacritics
-   $("#qdiacritics").html('ಲ');
+   $("#qdiacritics").html(diacritics[1]);
 
    $("#nextDiacritics").click(function(){
 
-    var ch = diacritics[Math.floor(Math.random() * diacritics.length)][1];
+    var ch = diacritics[1+ Math.floor(Math.random() * diacritics.length-1)][1];
     $("#qdiacritics").html(ch);
    });
     //---
