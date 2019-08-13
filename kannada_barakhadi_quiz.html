@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-var consonatns =['ಕ','ಖ','ಗ','ಘ','ಙ','ಚ','ಛ','ಜ','ಝ','ಞ','ಟ','ಠ','ಡ','ಢ','ಣ','ತ','ಥ','ದ','ಧ','ನ','ಪ','ಫ','ಬ','ಭ','ಮ','ಯ','ರ','ಱ','ಲ','ವ','ಶ','ಷ','ಸ','ಹ','ಳ','ೞ'];
+var consonants =['ಕ','ಖ','ಗ','ಘ','ಙ','ಚ','ಛ','ಜ','ಝ','ಞ','ಟ','ಠ','ಡ','ಢ','ಣ','ತ','ಥ','ದ','ಧ','ನ','ಪ','ಫ','ಬ','ಭ','ಮ','ಯ','ರ','ಱ','ಲ','ವ','ಶ','ಷ','ಸ','ಹ','ಳ','ೞ'];
 var diacritics =[
 ['ಅ','N/A','a'],
 ['ಆ','ಾ','ā'],
@@ -77,6 +77,16 @@ $(document).ready(function(){
     $("#qdiacritics").html(ch);
    });
     //---
+    //consonants_accord, qconsonants, nextConsonants
+    $("#qconsonants").html(consonants[0]);
+
+   $("#nextConsonants").click(function(){
+
+    var ch = consonants[Math.floor(Math.random() * consonants.length)];
+    $("#qconsonants").html(ch);
+   });
+    //--
+    // diacritic + consonants
    $("#q").html('ಲ');
 
   $("#next").click(function(){
@@ -105,11 +115,18 @@ $(document).ready(function(){
 <div class="container">
 
   <h1>Say What You See</h1>
-  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Diacritics</button>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Diacritics</button>
   <div id="diacritics_accord" class="collapse">
      <div id="qdiacritics" >
      </div>
      <button id="nextDiacritics">Next</button>
+  </div>
+
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Consonants</button>
+  <div id="consonants_accord" class="collapse">
+     <div id="qconsonants" >
+     </div>
+     <button id="nextConsonants">Next</button>
   </div>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Consonants</button>
