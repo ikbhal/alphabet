@@ -3,7 +3,8 @@ $(document).ready(function(){
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-    const redirect_uri = "https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/upload.html" // replace with your redirect_uri;
+    const redirect_uri = "https://rawcdn.githack.com/ikbhal/alphabet/c65dd824f3f2bee1c921a0714da0d1e3f865433f/gdrive/upload.html" // replace with your redirect_uri;
+
     const client_secret = "aHhPOuq_t6scGQURQZ6JRrIB"; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
     var access_token= "";
