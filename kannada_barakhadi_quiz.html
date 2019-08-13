@@ -9,23 +9,23 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-    var diacritics =[
-['ಅ	','N/A','a']
-['ಆ	','ಾ','ā']
-['ಇ	','ಿ','i']
-['ಈ','ೀ','	ī']
+var consonatns =['ಕ','ಖ','ಗ','ಘ','ಙ','ಚ','ಛ','ಜ','ಝ','ಞ','ಟ','ಠ','ಡ','ಢ','ಣ','ತ','ಥ','ದ','ಧ','ನ','ಪ','ಫ','ಬ','ಭ','ಮ','ಯ','ರ','ಱ','ಲ','ವ','ಶ','ಷ','ಸ','ಹ','ಳ','ೞ'];
+var diacritics =[
+['ಅ','N/A','a']
+['ಆ','ಾ','ā']
+['ಇ','ಿ','i']
+['ಈ','ೀ','ī']
 ['ಉ','ು','u']
-['ಊ','	ೂ','ū']
-['ಋ','	ೃ','ṛ/r̥']
+['ಊ','ೂ','ū']
+['ಋ','ೃ','ṛ/r̥']
 ['ೠ','ೄ','ṝ/r̥̄']
-['ಎ	','ೆ','e']
+['ಎ','ೆ','e']
 ['ಏ','ೇ','ē']
-['ಐ	','ೈ','	ai']
+['ಐ','ೈ','	ai']
 ['ಒ','ೊ','o']
 ['ಓ','ೋ','ō']
-['ಔ	','ೌ','au']
+['ಔ','ೌ','au']
 ];
-var consonatns =['ಕ','ಖ','ಗ','ಘ','ಙ','ಚ','ಛ','ಜ','ಝ','ಞ','ಟ','ಠ','ಡ','ಢ','ಣ','ತ','ಥ','ದ','ಧ','ನ','ಪ','ಫ','ಬ','ಭ','ಮ','ಯ','ರ','ಱ','ಲ','ವ','ಶ','ಷ','ಸ','ಹ','ಳ','ೞ'];
 var arr=[
 ['ಅ','ಆ','ಇ','ಈ','ಉ','ಊ','ಋ','ೠ','ಎ','ಏ','ಐ','ಒ','ಓ','ಔ','ಅಂ','ಅಃ','—'],
 ['ಕ','ಕಾ','ಕಿ','ಕೀ','ಕು','ಕೂ','ಕೃ','ಕೄ','ಕೆ','ಕೇ','ಕೈ','ಕೊ','ಕೋ','ಕೌ','ಕಂ','ಕಃ','ಕ್'],
@@ -67,18 +67,7 @@ var arr=[
     ];
 
 $(document).ready(function(){
-  // consonants
-  $("#qconsonants").html(consonatns[0]);
-
-  $("#consonantsNext").click(function(){
-    var i = Math.floor(Math.random() * consonatns.length);
-    var ch = consonatns[i];
-    $("#qconsonants").html(ch);
-  });
-
-
-  // diacritic + Consonants
-  $("#q").html('ಲ');
+   $("#q").html('ಲ');
 
   $("#next").click(function(){
     var nr = arr.length;
@@ -92,7 +81,7 @@ $(document).ready(function(){
 });
 </script>
   <style>
-  div#q, div#qconsonants {
+  div#q {
     background: yellow;
     width: 400px;
     height: 400px;
@@ -106,18 +95,31 @@ $(document).ready(function(){
 <div class="container">
 
   <h1>Say What You See</h1>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Diacritics</button>
+  <div id="diacritics_accord" class="collapse">
+     <div id="qdiacritics" >
+     </div>
+     <button id="nextDiacritics">Next</button>
+  </div>
+
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Consonants</button>
   <div id="consonants_accord" class="collapse">
      <div id="qconsonants" >
      </div>
-     <button id="consonantsNext">Next</button>
+     <button id="qnext">Next</button>
   </div>
 
-  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Consonants with diacritic </button>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Consonants Diag</button>
   <div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+     <h3>Question</h3>
      <div id="q" >
      </div>
      <button id="next">Next</button>
+
   </div>
 </div>
 
