@@ -49,8 +49,8 @@ $(document).ready(function(){
   $("#next").click(function(){
     var nr = arr.length;
     var nc = arr.length;
-    var i = Math.floor(Math.rand() * nr);
-    var j = Math.floor(Math.rand() * nc);
+    var i = Math.floor(Math.random() * nr);
+    var j = Math.floor(Math.random() * nc);
     var ch = arr[i][j];
     $("#q").html(ch);
   });
