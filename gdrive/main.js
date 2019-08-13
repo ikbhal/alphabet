@@ -2,11 +2,11 @@ $(document).ready(function(){
 
      // client id of the project
 
-     var clientId = "";
+     var clientId = "724670417426-8btdgn2uf3igob7u25490bq75kknts1f.apps.googleusercontent.com";
 
      // redirect_uri of the project
 
-     var redirect_uri = "";
+     var redirect_uri = "https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/upload.html";
 
      // scope of the project
 

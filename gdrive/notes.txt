@@ -1,0 +1,10 @@
+https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/upload.html
+https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/index.html
+
+---
+google developer console
+project name: alphabet
+client id: 724670417426-8btdgn2uf3igob7u25490bq75kknts1f.apps.googleusercontent.com
+client secret: aHhPOuq_t6scGQURQZ6JRrIB
+authorized domain: githack.com
+redirect uri: https://rawcdn.githack.com/ikbhal/alphabet/6a2332f6e0ef8b4e4d5a9f351a9a869389a79083/gdrive/upload.html
