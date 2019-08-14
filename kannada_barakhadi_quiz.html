@@ -101,6 +101,15 @@ $(document).ready(function(){
 });
 </script>
   <style>
+
+
+
+div#qdiacritics, .question {
+    width: 400px;
+    background: yellow;
+    height: 400px;
+    font-size: 320px;
+}
       /*
   div#q {
     background: yellow;
@@ -119,21 +128,21 @@ $(document).ready(function(){
   <h1>Say What You See</h1>
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Diacritics</button>
   <div id="diacritics_accord" class="collapse">
-     <div id="qdiacritics" >
+     <div id="qdiacritics" class="question">
      </div>
      <button id="nextDiacritics">Next</button>
   </div>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Consonants</button>
   <div id="consonants_accord" class="collapse">
-     <div id="qconsonants" >
+     <div id="qconsonants" class="question">
      </div>
      <button id="nextConsonants">Next</button>
   </div>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Consonants Diag</button>
-  <div id="demo" class="collapse">
-     <div id="q" >
+  <div id="demo" class="collapse" >
+     <div id="q" class="question">
      </div>
      <button id="next">Next</button>
 
