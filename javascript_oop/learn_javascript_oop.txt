@@ -1,0 +1,3 @@
+Bismillah
+
+https://javascript.info/class-inheritance
