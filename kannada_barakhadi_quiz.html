@@ -9,6 +9,48 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
+class Test {
+  constructor(name){
+      this.traverse_index=-1;
+      this.name = name;
+      this.alphabets = [];
+  }
+
+  add(alphabet) {
+      this.alphabets.push(alphabet);
+  }
+  remove(alphabet) {
+      for( var i = 0; i < this.alphabets.length; i++) {
+          if(this.alphabets[i] === alphabet) {
+              this.alphabets.splice(i,1);
+              break;
+          }
+      }
+  }
+
+  get(index) {
+      return this.alphabets[index];
+  }
+
+  length() {
+      return this.alphabets.length;
+  }
+
+  getFromLast() {
+      if(this.alphabets.length ==0 ){
+          console.error("no alphets to getFromLast");
+          return;
+      }
+      if(this.traverse_index === -1 || this.traverse_index === 0){ // first time or reached beginning
+          this.traverse_index = this.alphabets.length;
+      }
+      this.traverse_index--;
+      return this.alphabets[this.traverse_index];
+  }
+}
+
+var diacriticSelectTest = new Test("diacritics");
+
 var consonants =['ಕ','ಖ','ಗ','ಘ','ಙ','ಚ','ಛ','ಜ','ಝ','ಞ','ಟ','ಠ','ಡ','ಢ','ಣ','ತ','ಥ','ದ','ಧ','ನ','ಪ','ಫ','ಬ','ಭ','ಮ','ಯ','ರ','ಱ','ಲ','ವ','ಶ','ಷ','ಸ','ಹ','ಳ','ೞ'];
 var diacritics =[
 ['ಅ','N/A','a'],
@@ -68,6 +110,30 @@ var arr=[
 
 $(document).ready(function(){
 
+   // populate diacritics selection
+   $.each(diacritics, function(index, value){
+        //var span = $('<button />').addClass('diacritic').html(value[1] );
+        var diacriticButton = $('<button/>', {
+            text: value[1],
+            id: 'btn_diacritic_'+index,
+            click: function (e) {
+                 var ch = $(e.target).text();
+                 console.log("clicked button ch:" + ch);
+                 diacriticSelectTest.add(ch);
+                 console.log("diacriticSelectTest");
+                 console.log(diacriticSelectTest);
+            }
+        });
+        $("#selectDiacriticsContainer").append(diacriticButton);
+   });
+
+   $("#nextSelectDiacritics").click(function(){
+        var ch = diacriticSelectTest.getFromLast();// later from getFromFirst(), getFromLastSkip
+        $("#qselectDiacritics").html(ch);
+   });
+
+   // end of selection of diascritic
+
    //qdiacritics
    $("#qdiacritics").html(diacritics[1][0]);
 
@@ -124,8 +190,17 @@ div#qdiacritics, .question {
 <body>
 
 <div class="container">
-
   <h1>Say What You See</h1>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Select Diacritics</button>
+  <div id="diacritics_accord" class="collapse">
+     <div id="qselectDiacritics" class="question">
+     </div>
+     <button id="nextSelectDiacritics">Next</button>
+     <div id="selectDiacriticsContainer">
+     </div>
+  </div>
+
+
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Diacritics</button>
   <div id="diacritics_accord" class="collapse">
      <div id="qdiacritics" class="question">
