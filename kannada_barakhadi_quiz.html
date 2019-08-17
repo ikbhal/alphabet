@@ -113,7 +113,12 @@ var arr=[
     ];
 
 $(document).ready(function(){
+    $("#homeContainer").hide();
 
+    $("#startButton").click(function(){
+        $("#landingPageContainer").hide();
+        $("#homeContainer").show();
+    });
    // populate diacritics selection
    $.each(diacritics, function(index, value){
         //var span = $('<button />').addClass('diacritic').html(value[1] );
@@ -126,6 +131,11 @@ $(document).ready(function(){
                  diacriticSelectTest.add(ch);
                  console.log("diacriticSelectTest");
                  console.log(diacriticSelectTest);
+                 console.log($("#selectedDiacriticsTextList").text());
+                 if($("#selectedDiacriticsTextList").text().includes("Please")){
+                    $("#selectedDiacriticsTextList").text("");
+                 }
+                 $("#selectedDiacriticsTextList").append(","+ch);
             }
         });
         $("#selectDiacriticsContainer").append(diacriticButton);
@@ -134,7 +144,7 @@ $(document).ready(function(){
    $("#nextSelectDiacritics").click(function(){
         var ch = diacriticSelectTest.getFromLast();// later from getFromFirst(), getFromLastSkip
         $("#qselectDiacritics").html(ch);
-        $("#selectedDiacriticsTextList").append(","+ch);
+        //$("#selectedDiacriticsTextList").append(","+ch);
    });
 
    //selectedDiacriticsTextList
@@ -181,7 +191,19 @@ $(document).ready(function(){
 });
 </script>
   <style>
-
+      body{
+          background-color: black;
+          color: purple;
+      }
+      #homeContainer{
+        //visibility: hidden;
+      }
+      #main-heading{
+        text-align: center;
+      }
+      #landingPageContainer{
+        text-align: center;
+      }
 
 
 div#qdiacritics, .question {
@@ -203,7 +225,12 @@ div#qdiacritics, .question {
 </head>
 <body>
 
-<div class="container">
+<div id="landingPageContainer">
+    <h1 id="main-heading">Kannada Alphabets</h1>
+    <button id="startButton">Start</button>
+</div>
+    
+<div class="container" id="homeContainer">
   <h1>Say What You See</h1>
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Select Diacritics</button>
   <div id="diacritics_accord" class="collapse">
