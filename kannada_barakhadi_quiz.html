@@ -196,7 +196,8 @@ $(document).ready(function(){
           color: purple;
       }
       #homeContainer{
-        //visibility: hidden;
+        /*visibility: hidden;*/
+        text-align:center;
       }
       #main-heading{
         text-align: center;
@@ -204,10 +205,13 @@ $(document).ready(function(){
       #landingPageContainer{
         text-align: center;
       }
+      #homeContainer{
+        margin: 0 auto;  
+      }
 
 
 div#qdiacritics, .question {
-    width: 400px;
+    /*width: 400px;*/
     background: yellow;
     height: 400px;
     font-size: 320px;
@@ -232,8 +236,8 @@ div#qdiacritics, .question {
     
 <div class="container" id="homeContainer">
   <h1>Say What You See</h1>
-  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#diacritics_accord">Select Diacritics</button>
-  <div id="diacritics_accord" class="collapse">
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#select_diacritics_accord">Select Diacritics</button>
+  <div id="select_diacritics_accord" class="collapse">
      <div id="qselectDiacritics" class="question">
      </div>
      <button id="nextSelectDiacritics">Next</button><button id="resetSelectDiacritics">Reset</button>
