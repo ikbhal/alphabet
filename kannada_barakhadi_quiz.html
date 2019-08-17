@@ -14,6 +14,16 @@ class Test {
       this.traverse_index=-1;
       this.name = name;
       this.alphabets = [];
+      this.wrongList = [];
+      this.rightList = [];
+  }
+
+  getWrongList() {
+    return this.wrongList;
+  }
+
+  getRightList() {
+    return this.rightList;
   }
 
   clear() {
@@ -34,6 +44,33 @@ class Test {
 
   get(index) {
       return this.alphabets[index];
+  }
+  
+  getCurrent() {
+    if(this.traverse_index < 0 || this.traverse_index >= this.alphabets.length) {
+      return "N/A";
+    }
+    return this.alphabets[this.traverse_index];
+  }
+
+  isEmpty() {
+    return this.alphabets.length === 0;
+  }
+
+  isInTraversing() {
+    return this.traverse_index > -1 ;
+  }
+
+  appendWrong(){
+    if (this.isInTraversing()){
+      this.getWrongList().push(this.getCurrent());
+    } 
+  }
+
+  appendRight(){
+    if (this.isInTraversing()){
+      this.getRightList().push(this.getCurrent());
+    } 
   }
 
   length() {
@@ -125,6 +162,7 @@ $(document).ready(function(){
         var diacriticButton = $('<button/>', {
             text: value[1],
             id: 'btn_diacritic_'+index,
+            class:"btn .btn-default",
             click: function (e) {
                  var ch = $(e.target).text();
                  console.log("clicked button ch:" + ch);
@@ -145,6 +183,18 @@ $(document).ready(function(){
         var ch = diacriticSelectTest.getFromLast();// later from getFromFirst(), getFromLastSkip
         $("#qselectDiacritics").html(ch);
         //$("#selectedDiacriticsTextList").append(","+ch);
+   });
+
+   $("#wrongButton").click(function(){
+     console.log("inside wrongButton");
+     diacriticSelectTest.appendWrong();
+     $("#wrongDiacriticsTextList").text(diacriticSelectTest.wrongList);
+     console.log(diacriticSelectTest);
+   });
+
+   $("#rightButton").click(function(){
+     diacriticSelectTest.appendRight();
+     $("#rightDiacriticsTextList").text(diacriticSelectTest.rightList);
    });
 
    //selectedDiacriticsTextList
@@ -209,13 +259,18 @@ $(document).ready(function(){
         margin: 0 auto;  
       }
 
+      div#selectDiacriticsContainer {
+        margin-bottom: 10px;
+      }
 
-div#qdiacritics, .question {
-    /*width: 400px;*/
-    background: yellow;
-    height: 400px;
-    font-size: 320px;
-}
+      div#qdiacritics, .question {
+        /*width: 400px;*/
+        /*background: yellow;*/
+        background:#fdfff5;
+        height: 220px;
+        font-size: 250px;
+        margin-bottom: 100px;
+      }
       /*
   div#q {
     background: yellow;
@@ -231,7 +286,7 @@ div#qdiacritics, .question {
 
 <div id="landingPageContainer">
     <h1 id="main-heading">Kannada Alphabets</h1>
-    <button id="startButton">Start</button>
+    <button class="btn btn-primary" id="startButton">Start</button>
 </div>
     
 <div class="container" id="homeContainer">
@@ -240,8 +295,14 @@ div#qdiacritics, .question {
   <div id="select_diacritics_accord" class="collapse">
      <div id="qselectDiacritics" class="question">
      </div>
-     <button id="nextSelectDiacritics">Next</button><button id="resetSelectDiacritics">Reset</button>
-     <div id ="selectedDiacriticsTextList"></div>
+     
+     <button class="btn btn-primary" id="nextSelectDiacritics">Next</button>
+     <button class="btn btn-primary" id="resetSelectDiacritics">Reset</button>       
+     <button class="btn btn-primary" id="rightButton">Right</button>
+     <button class="btn btn-primary" id="wrongButton">Wrong</button>
+     <div>Selected:  <span id ="selectedDiacriticsTextList"></span></div>
+     <div>Wrong:  <span id ="wrongDiacriticsTextList"></span></div>     
+     <div>Right:  <span id ="rightdDiacriticsTextList"></span ></div>
      <div id="selectDiacriticsContainer">
      </div>
   </div>
@@ -251,21 +312,21 @@ div#qdiacritics, .question {
   <div id="diacritics_accord" class="collapse">
      <div id="qdiacritics" class="question">
      </div>
-     <button id="nextDiacritics">Next</button>
+     <button class="btn btn-primary" id="nextDiacritics">Next</button>
   </div>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#consonants_accord">Consonants</button>
   <div id="consonants_accord" class="collapse">
      <div id="qconsonants" class="question">
      </div>
-     <button id="nextConsonants">Next</button>
+     <button class="btn btn-primary" id="nextConsonants">Next</button>
   </div>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Consonants Diag</button>
   <div id="demo" class="collapse" >
      <div id="q" class="question">
      </div>
-     <button id="next">Next</button>
+     <button class="btn btn-primary" id="next">Next</button>
 
   </div>
 </div>
