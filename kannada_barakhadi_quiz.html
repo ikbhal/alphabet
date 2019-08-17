@@ -16,6 +16,10 @@ class Test {
       this.alphabets = [];
   }
 
+  clear() {
+      this.alphabets=[];
+      this.traverse_index=-1;
+  }
   add(alphabet) {
       this.alphabets.push(alphabet);
   }
@@ -130,7 +134,17 @@ $(document).ready(function(){
    $("#nextSelectDiacritics").click(function(){
         var ch = diacriticSelectTest.getFromLast();// later from getFromFirst(), getFromLastSkip
         $("#qselectDiacritics").html(ch);
+        $("#selectedDiacriticsTextList").append(","+ch);
    });
+
+   //selectedDiacriticsTextList
+   //nextSelectDiacritics
+
+    $("#resetSelectDiacritics").click(function(){
+        diacriticSelectTest.clear();// later from getFromFirst(), getFromLastSkip
+        $("#selectedDiacriticsTextList").html("Please select diacritics");
+   });
+
 
    // end of selection of diascritic
 
@@ -195,7 +209,8 @@ div#qdiacritics, .question {
   <div id="diacritics_accord" class="collapse">
      <div id="qselectDiacritics" class="question">
      </div>
-     <button id="nextSelectDiacritics">Next</button>
+     <button id="nextSelectDiacritics">Next</button><button id="resetSelectDiacritics">Reset</button>
+     <div id ="selectedDiacriticsTextList"></div>
      <div id="selectDiacriticsContainer">
      </div>
   </div>
