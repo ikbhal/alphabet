@@ -7,6 +7,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- AddEvent script -->
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
 
 <script>
 class Test {
@@ -162,7 +165,7 @@ $(document).ready(function(){
         var diacriticButton = $('<button/>', {
             text: value[1],
             id: 'btn_diacritic_'+index,
-            class:"btn .btn-default",
+            class:"btn btn-primary",
             click: function (e) {
                  var ch = $(e.target).text();
                  console.log("clicked button ch:" + ch);
@@ -284,6 +287,19 @@ $(document).ready(function(){
 </head>
 <body>
 
+<div id="NavigationContainer">
+    <!-- Button code -->
+    
+  <div title="Add to Calendar" class="addeventatc">
+    Add to Calendar
+    <span class="start">08/24/2019 10:30 AM</span>
+    <span class="end">08/24/2019 11:00 AM</span>
+    <span class="timezone">America/Los_Angeles</span>
+    <span class="title">Meet Alphabet developer</span>
+    <span class="description">To share your feedback</span>
+    <span class="location">online Skype: ikbhal.s or mobile: 9901014560 </span>
+  </div>
+</div>
 <div id="landingPageContainer">
     <h1 id="main-heading">Kannada Alphabets</h1>
     <button class="btn btn-primary" id="startButton">Start</button>
